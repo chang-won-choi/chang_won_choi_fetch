@@ -1,13 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
+    <!-- Header layout at the top -->
+    <LinearLayout
+        android:id="@+id/headerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@color/header_bg">
+
+        <TextView
+            android:id="@+id/txtHeaderListId"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="List ID"
+            android:textStyle="bold"
+            android:layout_marginEnd="16dp" />
+
+        <TextView
+            android:id="@+id/txtHeaderName"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- RecyclerView below the header -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"/>
+        android:layout_height="match_parent"/>
 </LinearLayout>
