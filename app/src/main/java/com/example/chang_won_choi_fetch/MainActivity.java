@@ -4,12 +4,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.chang_won_choi_fetch.adapter.ItemsAdapter;
 import com.example.chang_won_choi_fetch.api.ApiService;
 import com.example.chang_won_choi_fetch.api.RetrofitClient;
 
@@ -24,11 +23,18 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private List<Item> itemList = new ArrayList<>();
+    private ItemsAdapter itemsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Set up RecyclerView with custom Adapter
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        itemsAdapter = new ItemsAdapter(new ArrayList<>());
+        recyclerView.setAdapter(itemsAdapter);
 
         // Create Retrofit client
         ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
@@ -44,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
                     filterItems();
                     // Sort the items by listId and then name
                     sortItems();
+                    // Pass updated list to the adapter
+                    itemsAdapter.updateItems(itemList);
                     Log.i("Main Activity", "Items retrieved");
                 } else {
                     Log.e("Main Activity", "Error retrieving data");
