@@ -1,5 +1,8 @@
 package com.example.chang_won_choi_fetch;
 
+/***
+ * A Class for list items retrieved from the API.
+ ***/
 public class Item {
     private int id;
     private int listId;
@@ -12,7 +15,7 @@ public class Item {
         this.id = id;
     }
     public int getListId() {
-        return id;
+        return listId;
     }
     public void setListId(int listId) {
         this.listId = listId;
