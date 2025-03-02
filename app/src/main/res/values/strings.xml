@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">chang-won-choi-fetch</string>
+    <string name="listIdHeader">List ID</string>
+    <string name="nameHeader">Name</string>
 </resources>
