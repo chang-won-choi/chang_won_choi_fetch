@@ -19,17 +19,19 @@
 
         <TextView
             android:id="@+id/txtHeaderListId"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="List ID"
+            android:text="@string/listIdHeader"
+            android:textSize="20dp"
             android:textStyle="bold"
             android:layout_marginEnd="16dp" />
 
         <TextView
             android:id="@+id/txtHeaderName"
-            android:layout_width="50dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name"
+            android:text="@string/nameHeader"
+            android:textSize="20dp"
             android:textStyle="bold" />
     </LinearLayout>
 
